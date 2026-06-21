@@ -178,3 +178,26 @@ document.querySelectorAll('nav a').forEach((a) => {
     e.target.classList.add('active');
   });
 });
+
+/* ── MOBILE NAV HAMBURGER ── */
+const hamburger = document.getElementById('navHamburger');
+const drawer    = document.getElementById('navDrawer');
+
+function closeNav() {
+  hamburger.classList.remove('open');
+  drawer.classList.remove('open');
+}
+
+if (hamburger && drawer) {
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    drawer.classList.toggle('open');
+  });
+
+  // Tutup drawer kalau klik di luar
+  document.addEventListener('click', (e) => {
+    if (!hamburger.contains(e.target) && !drawer.contains(e.target)) {
+      closeNav();
+    }
+  });
+}
