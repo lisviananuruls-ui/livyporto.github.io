@@ -1,0 +1,687 @@
+/* ============================================
+   style.css — Profile Landing Page
+   ============================================ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── CSS VARIABLES ── */
+:root {
+  --bg:      #181c10;
+  --card-bg: #1e2214;
+  --card-bd: #35401f;
+  --amber:   #c8a56a;
+  --cream:   #e2d9c4;
+  --muted:   #8a9270;
+  --green:   #5c6e3a;
+  --tag-bg:  #2a3018;
+  --tag-bd:  #4a5828;
+  --nav-h:   44px;
+}
+
+/* ── BASE ── */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--cream);
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  line-height: 1.65;
+  min-height: 100vh;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+}
+
+/* LINKU */
+hit a {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  text-decoration: none;
+  text-transform: lowercase;
+  transition: color 0.2s;
+}
+/* ── NAV ── */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #12150ccc;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid #2a3018;
+  height: var(--nav-h);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+}
+
+nav .nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+nav a {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  text-decoration: none;
+  text-transform: lowercase;
+  transition: color 0.2s;
+}
+
+nav a:hover,
+nav a.active {
+  color: var(--amber);
+}
+
+nav a.active {
+  border-bottom: 1px solid var(--amber);
+}
+
+nav .nav-right {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 10px;
+  color: #4a5828;
+  letter-spacing: 0.08em;
+}
+
+/* ── WRAPPER ── */
+.wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 32px 16px 80px;
+}
+
+/* ── HEADER ROW ── */
+.header-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.site-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 38px;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--cream);
+  letter-spacing: -0.02em;
+}
+
+.site-title sup {
+  font-size: 14px;
+  color: var(--amber);
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  background: var(--tag-bg);
+  border: 1px solid var(--tag-bd);
+  border-radius: 4px;
+  padding: 3px 10px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+}
+
+.pill.accent {
+  border-color: var(--amber);
+  color: var(--amber);
+}
+
+/* ── GRID ── */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 260px;
+  gap: 14px;
+}
+
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── CARD ── */
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-bd);
+  border-radius: 6px;
+  padding: 18px 20px;
+  position: relative;
+}
+
+.card-label {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 9.5px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  color: var(--muted);
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.card-label::before {
+  content: '✦';
+  color: var(--amber);
+  font-size: 8px;
+}
+
+.card-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, var(--card-bd), transparent);
+}
+
+.card-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--cream);
+  margin-bottom: 10px;
+}
+
+.card p {
+  color: #a8a088;
+  font-size: 12.5px;
+  line-height: 1.7;
+}
+
+.card p strong {
+  color: var(--amber);
+  font-weight: 400;
+}
+
+.card p em {
+  color: var(--cream);
+  font-style: normal;
+}
+
+/* ── PHOTO CARD STATIC ── */
+.photo-card-static {
+  padding: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.photo-img-wrap {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: #252a18;
+}
+
+.photo-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.photo-card-static:hover .photo-img-wrap img {
+  transform: scale(1.03);
+}
+
+.photo-footer {
+  padding: 10px 14px 12px;
+  border-top: 1px solid var(--card-bd);
+}
+
+.photo-footer-label {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  color: var(--cream);
+  letter-spacing: 0.05em;
+}
+
+.photo-footer-tags {
+  font-size: 9.5px;
+  color: #4a5828;
+  margin-top: 3px;
+}
+
+/* ── BADGES ── */
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 12px;
+}
+
+.badge {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 10px;
+  padding: 3px 9px;
+  border-radius: 3px;
+  letter-spacing: 0.05em;
+}
+
+.badge.aries  { background: #251a1a; color: #c07070; border: 1px solid #402a2a; }
+.badge.shio-kuda    { background: #252018; color: #c8a050; border: 1px solid #403520; }
+.badge.mbti   { background: var(--tag-bg); color: var(--muted); border: 1px solid var(--tag-bd); }
+
+/* ── PERSONALITY ── */
+.mbti-display {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 8px 0 4px;
+}
+
+.mbti-type {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--cream);
+  letter-spacing: 0.1em;
+}
+
+.mbti-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--amber);
+  box-shadow: 0 0 8px var(--amber);
+}
+
+/* ── LORE ── */
+.lore-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-style: italic;
+  color: var(--cream);
+  margin-bottom: 8px;
+}
+
+.lore-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+  font-size: 12.5px;
+  color: #9a9278;
+  line-height: 1.75;
+}
+
+.lore-body.open {
+  max-height: 200px;
+  margin-top: 10px;
+}
+
+/* ── CLICK HERE ── */
+.click-here {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: color 0.2s;
+  user-select: none;
+}
+
+.click-here:hover {
+  color: var(--amber);
+}
+
+/* ── REFERENCES ── */
+.ref-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ref-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px;
+  background: #1a1f0f;
+  border: 1px solid #2a3018;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.ref-item:hover {
+  border-color: var(--amber);
+}
+
+.ref-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 12px;
+  color: var(--cream);
+}
+
+.ref-sub {
+  font-size: 10.5px;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+.ref-heart {
+  color: var(--muted);
+  font-size: 13px;
+  transition: color 0.2s;
+}
+
+.ref-item:hover .ref-heart {
+  color: #c05058;
+}
+
+/* ── QUOTE ── */
+.quote-mark {
+  font-size: 40px;
+  color: var(--amber);
+  line-height: 0.6;
+  display: block;
+  margin-bottom: 10px;
+}
+
+blockquote {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 14px;
+  line-height: 1.75;
+  color: var(--cream);
+  border-left: 2px solid var(--amber);
+  padding-left: 14px;
+  margin-bottom: 10px;
+}
+
+.quote-attr {
+  font-size: 10.5px;
+  color: var(--muted);
+}
+
+.quote-attr::before {
+  content: '— ';
+}
+
+/* ── GALLERY ── */
+.gallery-outer {
+  position: relative;
+}
+
+.gallery-track-wrap {
+  overflow: hidden;
+  position: relative;
+}
+
+.gallery-track {
+  display: flex;
+  gap: 12px;
+  cursor: grab;
+  user-select: none;
+  padding: 4px 2px;
+}
+
+.gallery-track:active {
+  cursor: grabbing;
+}
+
+.gallery-item {
+  flex: 0 0 calc(33.33% - 8px);
+  min-width: 200px;
+  background: #1a1f0f;
+  border: 1px solid #2a3018;
+  border-radius: 5px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.2s;
+}
+
+@media (max-width: 640px) {
+  .gallery-item {
+    flex: 0 0 240px;
+  }
+}
+
+.gallery-item:hover {
+  border-color: var(--amber);
+}
+
+.gallery-img {
+  width: 100%;
+  height: 130px;
+  background: #252a18;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+}
+
+.gallery-footer {
+  padding: 8px 10px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.gallery-label {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 10.5px;
+  color: var(--muted);
+}
+
+.gallery-tags {
+  font-size: 9.5px;
+  color: #4a5828;
+  margin-top: 3px;
+}
+
+.gallery-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #1e2214cc;
+  border: 1px solid var(--card-bd);
+  color: var(--cream);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: background 0.2s, border-color 0.2s;
+  backdrop-filter: blur(4px);
+}
+
+.gallery-btn:hover {
+  background: var(--green);
+  border-color: var(--amber);
+}
+
+.gallery-btn.prev { left: -16px; }
+.gallery-btn.next { right: -16px; }
+
+@media (max-width: 640px) {
+  .gallery-btn.prev { left: 2px; }
+  .gallery-btn.next { right: 2px; }
+}
+
+/* ── INTERESTS ── */
+.interests-layout {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 18px;
+  align-items: stretch;
+}
+ 
+@media (max-width: 600px) {
+  .interests-layout {
+    grid-template-columns: 1fr;
+  }
+}
+ 
+/* Kiri: foto tunggal */
+.int-photo-single {
+  background: #1a1f0f;
+  border: 1px solid #2a3018;
+  border-radius: 5px;
+  overflow: hidden;
+  transition: border-color 0.2s;
+  display: flex;
+  flex-direction: column;
+}
+ 
+.int-photo-single:hover {
+  border-color: var(--amber);
+}
+ 
+.int-photo-single img {
+  width: 100%;
+  flex: 1;
+  min-height: 0;
+  object-fit: cover;
+  display: block;
+  background: #252a18;
+  transition: transform 0.3s ease;
+}
+ 
+.int-photo-single:hover img {
+  transform: scale(1.04);
+}
+ 
+.int-photo-caption {
+  padding: 6px 10px 8px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 9.5px;
+  color: var(--muted);
+  border-top: 1px solid #2a3018;
+}
+ 
+/* Kanan: tags + teks */
+.interests-right {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+ 
+.interests-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+ 
+.int-tag {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 10.5px;
+  color: var(--muted);
+  background: var(--tag-bg);
+  border: 1px solid var(--tag-bd);
+  border-radius: 3px;
+  padding: 3px 8px;
+}
+ 
+.interests-text {
+  font-size: 12.5px;
+  color: #9a9278;
+  line-height: 1.75;
+}
+ 
+.interests-text strong {
+  color: var(--cream);
+  font-weight: 400;
+}
+ 
+.sign-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: #1a2535;
+  border: 1px solid #2a3a55;
+  border-radius: 3px;
+  padding: 2px 8px;
+  font-size: 16px;
+}
+ 
+/* ── FULL WIDTH ── */
+.full-row {
+  grid-column: 1 / -1;
+}
+
+
+/* ── FOOTER ── */
+footer {
+  border-top: 1px solid #2a3018;
+  margin-top: 48px;
+  padding-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.footer-left {
+  font-size: 10.5px;
+  color: #4a5828;
+  line-height: 1.8;
+}
+
+.footer-cta {
+  text-align: center;
+  flex: 1;
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-style: italic;
+  color: var(--cream);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.footer-right {
+  font-size: 10px;
+  color: #4a5828;
+  text-align: right;
+  line-height: 1.8;
+}
+
+.footer-right span {
+  color: var(--muted);
+}
+
+.footer-note {
+  width: 100%;
+  text-align: center;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 9.5px;
+  color: #3a4520;
+  letter-spacing: 0.1em;
+  margin-top: 8px;
+}
+
+.dot {
+  color: var(--amber);
+}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--card-bd); border-radius: 3px; }
